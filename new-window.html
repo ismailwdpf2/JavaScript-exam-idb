@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 450px;
+            margin: 20px auto;
+            border: 2px solid darkblue;
+            padding: 20px;
+        }
+      
+    </style>
+</head>
+<body>
+
+
+    <form action="">
+        <label for="">Name: </label> <br>
+        <input type="text" id="name" placeholder="Enter your name...">
+        
+        <br>
+        <label for="">Contact</label><br>
+        <input type="text" name="contact" id="contact">
+        
+        <br>
+        <label for="">Remarks</label> <br>
+        <textarea name="remark" id="remark" cols="30" rows="10"></textarea>
+     
+        <br>
+        <label for="">Gender: </label> <br>
+        Male: <input type="radio" name="gender" id="" value="male"> | 
+        Female: <input type="radio" name="gender" id="" value="female"> 
+       
+        <br>
+        <label for="">Course: </label> <br>
+        NT   <input class="course" type="checkbox" name="course" id="" value="nt"> |
+        Gave <input class="course" type="checkbox" name="course" id="" value="gave"> |
+        WDPF <input class="course" type="checkbox" name="course" id="" value="wdpf"> 
+   
+        
+        <br>
+        <label for="">Location: </label>
+        <select name="" id="location">
+            <option value="azimpor">Azimpor</option>
+            <option value="dhanmodi">Dhanmodi</option>
+            <option value="gulshan">Gulshan</option>
+        </select>
+        <br>
+        <br>
+
+        <button onclick="formValidate()" type="button">Submit</button>
+
+    </form>
+
+    <script>
+        function formValidate(){
+
+            const userName = document.getElementById("name").value;
+            const contact = document.getElementById("contact").value;
+            const remark = document.getElementById("remark").value;
+            const gender = document.querySelector("input[name='gender']:checked").value;
+            const course = document.querySelectorAll(".course:checked"); 
+            const location = document.getElementById("location").value;        
+
+            const courseList = [];
+
+            for(const item of course){
+
+                 courseList.push(item.value);
+            }
+          const newWindow = window.open('','','width= 350px,height=300px ');
+
+            newWindow.document.write("Name: " +userName + "<br>")
+            newWindow.document.write( "Contact: " + contact + "<br>")
+            newWindow.document.write("Remark: " + remark + "<br>")
+            newWindow.document.write("Gender: " + gender + "<br>")
+            newWindow.document.write("Course: " + courseList + "<br>")
+            newWindow.document.write("Location: " + location + "<br>")
+         }
+    </script>
+
+    
+</body>
+</html>
